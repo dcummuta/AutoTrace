@@ -1,3 +1,25 @@
-SP_ReplaceFileOrDirNames.sql has to be ran first in order for the main script to work
-Knowledge of Microsoft SQL and SQL server manager is necessary to use this
-do not use this if you do not know what it is doing
+These are job creation scripts that I modded together from several other scripts create a job that runs Microsoft SQL profiler automatically for 1 hour and saves the trace file(s) to the local D:\ drive 
+(I have not refactored this and with many more hours of testing I could probably make it a lot cleaner with more variable inserts but, this is the most readable and safe way for me to create this for now)  
+
+!!!!!!!Knowledge of Microsoft SQL and SQL server manager is necessary to use this!!!!!!!!!!
+!!!!!!!!!!!!!!DO NOT USE THIS JOB IF YOU DO NOT KNOW WHAT IT IS DOING!!!!!!!!!!!!!!!!!!!!!
+
+
+
+The first scripe SP_ReplaceFileOrDirNames.sql has to be ran first in order for the main script to work
+This first Script creates a stored procedure that allows for changing file names outside of SQL on the actual server/client/nas/etc depending on security setup of the environment this needs to be tested first to ensure the account running this full job has the ability to actually do this. 
+
+The source of this wonderful SP can be found here:  https://stackoverflow.com/questions/27856229/how-to-change-extension-of-a-file
+
+The second script is a combination of two things:
+  
+  1) a job step that renames any current trace files in the d:\ drive where it is saving by default.  This is to ensure that no current tracefiles are overwritten. This is using the SP_ReplaceFileOrDirNames stored procedure.  It has to turn an administrative feature of SQL "sp_configure" that is very dangerous if left on so it turns it off imediately after running the middle of the script.
+  
+  For more on these see: 
+- https://stackoverflow.com/questions/27856229/how-to-change-extension-of-a-file
+- https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql?view=sql-server-2017
+  
+  2) a job step that is very commonly used by DBA's to run traces with SQL profiler however, I modified it to actually run for only a small window of time automatically so the stoptime time can be variable and not have to be implicitly stated.  (See lines 238,239,240 that create the time variable and inserts it later into the execute line 260 as "@Dateime" 
+  
+  For more on the stored procedure and its options/functionality see:
+  - https://social.msdn.microsoft.com/Forums/sqlserver/en-US/ac75ee04-3e46-49ca-96e0-ff56c05909be/spcreatetrace?forum=transactsql
