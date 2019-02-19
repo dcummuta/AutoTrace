@@ -4,7 +4,6 @@
 USE [master]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ReplaceFileOrDirNames]    Script Date: 02/11/2019 16:27:52 ******/
 SET ANSI_NULLS ON
 GO
 
