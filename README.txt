@@ -1,10 +1,9 @@
 These are job creation scripts that I modded together from several other scripts to create a job that runs Microsoft SQL profiler automatically for 1 hour and saves the trace file(s) to the local D:\ drive 
-(I have not refactored this and with many more hours of testing I could probably make it a lot cleaner with more variable inserts but, this is the most readable and safe way for me to create this for now)  
 
 
 
-                  !!!!!!!Knowledge of T-SQL and Microsoft SQL Server Manager Studio is necessary to use this!!!!!!!!!!
-                  !!!!!!!!!!!!!!!!!!!!!!DO NOT USE THIS JOB IF YOU DO NOT KNOW WHAT IT IS DOING!!!!!!!!!!!!!!!!!!!!!!!
+                # !!!!!!!Knowledge of T-SQL and Microsoft SQL Server Manager Studio is necessary to use this!!!!!!!!!!
+                # !!!!!!!!!!!!!!!!!!!!!!DO NOT USE THIS JOB IF YOU DO NOT KNOW WHAT IT IS DOING!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
