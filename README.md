@@ -2,8 +2,8 @@ These are job creation scripts that I modded together from several other scripts
 
 
 
-                # !!!!!!!Knowledge of T-SQL and Microsoft SQL Server Manager Studio is necessary to use this!!!!!!!!!!
-                # !!!!!!!!!!!!!!!!!!!!!!DO NOT USE THIS JOB IF YOU DO NOT KNOW WHAT IT IS DOING!!!!!!!!!!!!!!!!!!!!!!!
+   # Knowledge of T-SQL and Microsoft SQL Server Manager Studio is necessary to use this
+   # DO NOT USE THIS JOB IF YOU DO NOT KNOW WHAT IT IS DOING
 
 
 
